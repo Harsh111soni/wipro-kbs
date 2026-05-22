@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  name: harsh-replicaset
+  labels:
+    app: web
+spec:  #defines the behavior of the ReplicaSet
+  replicas: 3
+  selector:  
+    matchLabels:
+      web: nginx
+  template:  
+    metadata:
+      labels:
+        web: nginx
+    spec: #defines the behavior of the pod
+      containers:
+        - name: nginx
+          image: nginx
+          ports:
+            - containerPort: 80

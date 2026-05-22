@@ -7,10 +7,10 @@ spec:
   - name: harsh-veg
     image: harsh0soni/vege:v1.0.0
     ports:
-    - containerPort: 3000
+      - containerPort: 3000
 
   containers:
   - name: nginx-cont
     image: nginx
     ports:
-    - containerPort: 80
+      - containerPort: 80
