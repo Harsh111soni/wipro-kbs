@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: harsh-pod
+spec:
+  containers:
+  - name: harsh-veg
+    image: harsh0soni/vege:v1.0.0
+    ports:
+    - containerPort: 3000
