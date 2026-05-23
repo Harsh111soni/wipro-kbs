@@ -30,8 +30,8 @@ metadata:
 spec:
   selector:
     app: web
-ports:
-  - protocol: TCP
-    port: 5200
-    targetPort: 5000
-type: ClusterIP
+  ports:
+    - protocol: TCP
+      port: 5200
+      targetPort: 5000
+  type: ClusterIP
