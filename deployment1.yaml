@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: note-app
+  labels:
+    first: app
+spec: #defines the behavior of the replicaset
+  replicas: 3
+  selector:
+    matchLabels:
+      app: web
+  template:
+    metadata:
+      labels:
+        app: web
+    spec: #defines the behavior of the pod
+      containers:
+        - name: my-note
+          image: harsh0soni/self:v1.0.0
+          ports:
+            - containerPort: 5000
