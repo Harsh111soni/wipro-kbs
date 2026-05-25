@@ -1,0 +1,37 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ghee-app
+  labels:
+    first: app
+spec: #defines the behavior of the replicaset
+  replicas: 3
+  selector:
+    matchLabels:
+      app: web
+  template:
+    metadata:
+      labels:
+        app: web
+    spec: #defines the behavior of the pod
+      containers:
+        - name: my-ghee
+          image: harsh0soni/ghee2:v1.0.1
+          ports:
+            - containerPort: 5656
+
+
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: ghee-service
+spec:
+  selector:
+    app: web
+  ports:
+    - protocol: TCP
+      port: 5656
+      targetPort: 5656
+  type: ClusterIP
