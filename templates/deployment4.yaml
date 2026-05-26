@@ -1,0 +1,43 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ghee-app
+  labels:
+    first: app
+spec: #defines the behavior of the replicaset
+  replicas: {{ .Values.replicas }}
+  selector:
+    matchLabels:
+      app: web
+  template:
+    metadata:
+      labels:
+        app: {{ .Values.labels.app }}
+    spec: #defines the behavior of the pod
+      containers:
+        - name: {{ .Values.labels.containers.name }}
+          image: {{ .Values.labels.containers.image }}
+          ports:
+            - containerPort: {{ .Values.labels.containers.port }}
+          envFrom:
+            - configMapRef:
+                name: {{ .Values.configMapRef.name }}
+            - secretRef:
+                name: {{ .Values.secret.name }
+
+
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ .Values.service.name }}
+spec:
+  selector:
+    app: web
+  ports:
+    - protocol: TCP
+      port: {{ .Values.service.port }}
+      targetPort: {{ .Values.service.targetPort }}
+
+  type: {{ .Values.service.type }}

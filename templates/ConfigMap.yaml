@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ .Values.configMap.name }}
+# data:
+#   DB_HOST: {{ .Values.configMap.data.DB_HOST }}
+#   DB_PORT: {{ .Values.configMap.data.DB_PORT }}
+#   DB_USER: {{ .Values.configMap.data.DB_USER }}
+#   APP_NAME: {{ .Values.configMap.data.APP_NAME }}
+#   APP_PORT: {{ .Values.configMap.data.APP_PORT }}
+
+data:
+  {{- range $key, $value := .Values.configMap.data }}
+  {{ $key }}: "{{ $value }}"
+  {{- end }}

@@ -1,0 +1,28 @@
+namespace:
+  name: harsh-ns
+replicas: 3
+labels:
+  app: web
+  containers:
+        - name: my-ghee
+          port: 5656
+          image: harsh0soni/ghee2:v1.0.1
+service:
+  name: ghee-service
+  port: 5656
+  targetPort: 5656
+  type: NodePort
+configMap:
+  name: harsh-config
+  data:
+    DB_HOST: Mongodb
+    DB_PORT: "27017"
+    DB_USER: admin
+    APP_NAME: ghee-app
+    APP_PORT: "5656"
+secret:
+  name: harsh-secret
+  type: Opaque
+  data:
+    DB_PASSWORD: UEFTU1dPUkQ=
+    DB_USER: QURNSU4=
