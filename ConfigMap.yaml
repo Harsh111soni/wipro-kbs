@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: harsh-config
+data:
+  DB_HOST: Mongodb
+  DB_PORT: "27017"
+  DB_USER: admin
+  APP_NAME: ghee-app
+  APP_PORT: "5656"
+  
