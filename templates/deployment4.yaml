@@ -21,7 +21,7 @@ spec: #defines the behavior of the replicaset
             - containerPort: {{ .Values.containers.port }}
           envFrom:
             - configMapRef:
-                name: {{ .Values.configMapRef.name }}
+                name: {{ .Values.configMap.name }}
             - secretRef:
                 name: {{ .Values.secret.name }}
 
