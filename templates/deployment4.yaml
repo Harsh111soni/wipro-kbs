@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: ghee-app
+  name: {{ .Release.Name }}-dep
   labels:
     first: app
 spec: #defines the behavior of the replicaset
