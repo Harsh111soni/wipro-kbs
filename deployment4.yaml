@@ -19,9 +19,9 @@ spec: #defines the behavior of the replicaset
           image: harsh0soni/ghee2:v1.0.1
           ports:
             - containerPort: 5656
-              envFrom:
-                - configMapRef:
-                    name: harsh-config
+          envFrom:
+            - configMapRef:
+                name: harsh-config
 
 
 
