@@ -15,15 +15,15 @@ spec: #defines the behavior of the replicaset
         app: {{ .Values.labels.app }}
     spec: #defines the behavior of the pod
       containers:
-        - name: {{ .Values.labels.containers.name }}
-          image: {{ .Values.labels.containers.image }}
+        - name: {{ .Values.containers.name }}
+          image: {{ .Values.containers.image }}
           ports:
-            - containerPort: {{ .Values.labels.containers.port }}
+            - containerPort: {{ .Values.containers.port }}
           envFrom:
             - configMapRef:
                 name: {{ .Values.configMapRef.name }}
             - secretRef:
-                name: {{ .Values.secret.name }
+                name: {{ .Values.secret.name }}
 
 
 
