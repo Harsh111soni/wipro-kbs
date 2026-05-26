@@ -22,6 +22,8 @@ spec: #defines the behavior of the replicaset
           envFrom:
             - configMapRef:
                 name: harsh-config
+              secretRef:
+                name: harsh-secret
 
 
 
