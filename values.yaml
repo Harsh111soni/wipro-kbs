@@ -5,7 +5,7 @@ labels:
   app: web
 
 containers:
-  - name: my-ghee
+    name: my-ghee
     port: 5656
     image: harsh0soni/ghee2:v1.0.1
 
