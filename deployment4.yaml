@@ -37,4 +37,5 @@ spec:
     - protocol: TCP
       port: 5656
       targetPort: 5656
+
   type: NodePort
