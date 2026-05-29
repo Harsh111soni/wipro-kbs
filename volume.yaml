@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: note-app
+
+spec:
+  replicas: 2
+
+  selector:
+    matchLabels:
+      app: web
+
+  template:
+    metadata:
+      labels:
+        app: web
+
+    spec:
+      containers:
+      - name: my-note
+        image: harsh0soni/self:v1.0.0
+
+        ports:
+        - containerPort: 5000
+
+        volumeMounts:
+        - name: note-storage
+          mountPath: /app/data
+
+      volumes:
+      - name: note-storage
+        emptyDir: {}
